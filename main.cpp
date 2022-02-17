@@ -19,7 +19,11 @@ vector<int> arii;
 int main() {
     char comanda[10];
 
+    cout << "Apasati ENTER ca sa incepeti" << endl;
+
     do {
+        
+        cin.get();
         cout << "Introduceti comanda: ";
         cin.get(comanda, 10);
 
@@ -52,40 +56,40 @@ int main() {
                 arie_lat = 6 * a.caracteristici[0] * a.inaltime;
                 arii.push_back(arie_lat);
 
-                cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca";
+                cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca" << endl;
             } else if(a.tip_baza[0] == 'p') {
                 volum = a.caracteristici[0] * a.caracteristici[0] * a.inaltime * 2;
                 volume.push_back(volum);
                 arie_lat = a.caracteristici[0] * 4 * a.inaltime;
                 arii.push_back(arie_lat);
 
-                cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca";
+                cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca" << endl;
             } else if(a.tip_baza[0] == 'd') {
                volum = a.caracteristici[0] * a.caracteristici[0] * a.inaltime * 2;
                volume.push_back(volum);
                 arie_lat = (a.caracteristici[0] * 2 + a.caracteristici[1] * 2) * a.inaltime;
                 arii.push_back(arie_lat);
 
-               cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca";
+               cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca" << endl;
             } else if(a.tip_baza[0] == 't') {
                 volum = (a.caracteristici[0] * a.caracteristici[1] / 2) * a.inaltime * 2;
                volume.push_back(volum);
                arie_lat = (a.caracteristici[0] + a.caracteristici[1] + sqrt(a.caracteristici[0] * a.caracteristici[0] + a.caracteristici[1] * a.caracteristici[1])) * a.inaltime;
                 arii.push_back(arie_lat);
                 
-                cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca";
+                cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca" << endl;
             }
 
             forme.push_back(a);
 
-        } else if(strstr(comanda, "REMOVE")) {
+        } else if(strcmp(comanda, "REMOVE") == 0) {
             int nr = comanda[7];
             cout << "Eliminam forma " << nr << endl;
 
             forme.erase(forme.begin() + nr - 1);
             volume.erase(volume.begin() + nr - 1);
             arii.erase(arii.begin() + nr - 1);
-        } else if(strcmp(comanda, "TOTAL")) {
+        } else if(strcmp(comanda, "TOTAL") == 0) {
             cout << "Necesarul curent total: " << endl;
             int s = 0;
             cout << "Gem: " << accumulate(volume.begin(), volume.end(), s) << endl;
