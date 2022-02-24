@@ -18,15 +18,15 @@ public:
         imaginar = nr_.imaginar;
     }
 
-    setReal(double real_) {
+    void setImaginar(double imaginar_) {
+        imaginar = imaginar_;
+    }
+
+    void setReal(double real_) {
         real = real_;
     }
 
-    setReal(double real_) {
-        real = real_;
-    }
-
-    afisare() {
+    void afisare() {
         if (real == 0 && imaginar == 0) {
             cout << 0 << endl;
         } else if( real == 0 ) {
@@ -46,7 +46,7 @@ public:
         }
     }
 
-    getModule() {
+    double getModule() {
         return sqrt(real*real + imaginar*imaginar);
     }
 
