@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <cstring>
 using namespace std;
 
 class Vector {
@@ -9,7 +11,7 @@ private:
 
 public:
     Vector(int nr, int comp) {
-        delete[] v;
+        // delete[] v;
 
         n = comp;
         int *newArray = new int[n];
@@ -20,18 +22,18 @@ public:
     }
 
     //Constructorul de initializare?
-    Vector(int dim) {
-        n = dim;
-        v = new int[n];
-    }
+    // Vector(int dim) {
+    //     n = dim;
+    //     v = new int[n];
+    // }
 
     //Constructorul de copiere?
-    Vector(Vector w) {
+    Vector(Vector const &w) {
         delete[] v;
         int *newArray = new int[w.n];
 
         for(int i = 0; i < w.n; i++)
-            newArray[i] = w[i]; 
+            newArray[i] = w.v[i]; 
 
         v =  newArray;
     }
@@ -40,26 +42,26 @@ public:
         delete[] v;
     }
 
-    Vector operator=(Vector const &w) {
-        delete[] v;
-        int *newArray = new int[w.n];
+    // Vector operator=(Vector const &w) {
+    //     delete[] v;
+    //     int *newArray = new int[w.n];
 
-        for(int i = 0; i < w.n; i++)
-            newArray[i] = w[i]; 
+    //     for(int i = 0; i < w.n; i++)
+    //         newArray[i] = w[i]; 
 
-        v =  newArray;
-    }
+    //     v =  newArray;
+    // }
 
-    void actualizare(int nr, int comp) {
-        delete[] v;
-        n = comp
-        int *newArray = new int[n];
+    // void actualizare(int nr, int comp) {
+    //     delete[] v;
+    //     n = comp;
+    //     int *newArray = new int[n];
 
-        for(int i = 0; i < n; i++)
-            newArray[i] = nr; 
+    //     for(int i = 0; i < n; i++)
+    //         newArray[i] = nr; 
 
-        v =  newArray;
-    }
+    //     v =  newArray;
+    // }
 
     void Suma() {
         int suma = 0;
@@ -85,9 +87,44 @@ public:
    
 };
 
+class Meniu {
+private:
+    string comand;
+
+public:
+    void run() {
+        cout << "TEMA --> Implementarea clasei Vector" << endl << endl;
+        cout << "              MENIU COMENZI         " << endl << endl;
+        cout << "1. ADD n x - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
+        cout << "2. PRINT - afiseaza al n-lea obiect creat" << endl;
+        cout << "3. SUM - afiseaza suma elementelor vectorului" << endl;
+        cout << "4. MAX - afiseaza cel mai mare element din vector" << endl;
+        cout << "5. SORT - sorteaza crescator vectorul" << endl;
+        cout << "6. STOP - opreste programul" << endl;
+        cout << endl;
+        
+        cout << "Ca sa incepeti apasati ENTER" << endl;
+        cin.get();
+        
+        do {
+            cout << "Introduceti comanda si apasati ENTER --> ";
+            getline (cin, comand);
+
+            if( comand[0] == 'A' ) {
+
+            }
+
+
+        }while( comand[1] != 'T' );
+        
+        
+    }
+
+};
+
 int main() {
-   
-   Vector victor()
+    Meniu m;
+    m.run();
 
     return 0;
 }
