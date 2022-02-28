@@ -132,8 +132,7 @@ public:
             }
 
 
-        }while( strcmp(comand, "STOP") == 0 );
-        
+        }while( strcmp(comand, "STOP") != 0 );
         
     }
 
