@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 #include <cstring>
 using namespace std;
 
@@ -10,7 +9,7 @@ private:
     int n, *v;
 
 public:
-    Vector(int nr, int comp) {
+    Vector(int nr = 0, int comp = 1) {
         // delete[] v;
 
         n = comp;
@@ -84,18 +83,28 @@ public:
     void Sortare() {
         sort(v, v + n);
     }
-   
+
+    void afisare() {
+        for(int i = 0 ; i < n; i++) 
+            cout << v[i] << " ";
+        cout << endl;
+    }
+
+   friend class Meniu;
 };
 
 class Meniu {
 private:
-    string comand;
+    char comand[12];
+    bool avem;
+    Vector tablou;
 
 public:
+
     void run() {
         cout << "TEMA --> Implementarea clasei Vector" << endl << endl;
         cout << "              MENIU COMENZI         " << endl << endl;
-        cout << "1. ADD n x - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
+        cout << "1. ADD x n - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
         cout << "2. PRINT - afiseaza al n-lea obiect creat" << endl;
         cout << "3. SUM - afiseaza suma elementelor vectorului" << endl;
         cout << "4. MAX - afiseaza cel mai mare element din vector" << endl;
@@ -104,18 +113,26 @@ public:
         cout << endl;
         
         cout << "Ca sa incepeti apasati ENTER" << endl;
-        cin.get();
         
+
+        avem = false;
         do {
+            cin.get();
             cout << "Introduceti comanda si apasati ENTER --> ";
-            getline (cin, comand);
+            cin.get(comand, 12);
 
             if( comand[0] == 'A' ) {
-
+                avem = true;
+                int n = comand[4] - '0';
+                int dim = comand[6] - '0';
+                Vector vct(n, dim);
+                tablou = vct;
+            }else if( comand[0] == 'P' ) {
+                tablou.afisare();
             }
 
 
-        }while( comand[1] != 'T' );
+        }while( strcmp(comand, "STOP") == 0 );
         
         
     }
