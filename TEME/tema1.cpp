@@ -27,9 +27,9 @@ public:
     // }
 
     //Constructorul de copiere?
-    Vector(Vector const &w) {
-        delete[] v;
+    Vector(const Vector &w) {
         int *newArray = new int[w.n];
+        n = w.n;
 
         for(int i = 0; i < w.n; i++)
             newArray[i] = w.v[i]; 
@@ -41,15 +41,22 @@ public:
         delete[] v;
     }
 
-    // Vector operator=(Vector const &w) {
-    //     delete[] v;
-    //     int *newArray = new int[w.n];
+    int operator[](int poz) const {
+        return v[poz];
+    }
 
-    //     for(int i = 0; i < w.n; i++)
-    //         newArray[i] = w[i]; 
+    Vector& operator=(const Vector &w) {
+        delete[] v;
+        int *newArray = new int[w.n];
+        n = w.n;
 
-    //     v =  newArray;
-    // }
+        for(int i = 0; i < w.n; i++)
+            newArray[i] = w[i]; 
+
+        v =  newArray;
+
+        return *this;
+    }
 
     // void actualizare(int nr, int comp) {
     //     delete[] v;
@@ -84,18 +91,34 @@ public:
         sort(v, v + n);
     }
 
-    void afisare() {
-        for(int i = 0 ; i < n; i++) 
-            cout << v[i] << " ";
-        cout << endl;
+    void change(int poz, int val) {
+        if(poz >= n) 
+            cout << "Segmentation fault! Ai iesit din vector.";
+        else
+            v[poz] = val;
     }
 
-   friend class Meniu;
+    friend ostream& operator<<(ostream &os, Vector &rhs) {
+        os << "Vectorul la momentul curent: ";
+        for(int i = 0; i < rhs.n; i++)
+            os << rhs[i] << " ";
+        os << endl;
+
+        return os;
+    }
+
+    // void afisare() {
+    //     for(int i = 0 ; i < n; i++) 
+    //         cout << v[i] << " ";
+    //     cout << endl;
+    // }
+
+//    friend class Meniu;
 };
 
 class Meniu {
 private:
-    char comand[12];
+    char comand[15];
     bool avem;
     Vector tablou;
 
@@ -105,11 +128,12 @@ public:
         cout << "TEMA --> Implementarea clasei Vector" << endl << endl;
         cout << "              MENIU COMENZI         " << endl << endl;
         cout << "1. ADD x n - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
-        cout << "2. PRINT - afiseaza al n-lea obiect creat" << endl;
-        cout << "3. SUM - afiseaza suma elementelor vectorului" << endl;
-        cout << "4. MAX - afiseaza cel mai mare element din vector" << endl;
-        cout << "5. SORT - sorteaza crescator vectorul" << endl;
-        cout << "6. STOP - opreste programul" << endl;
+        cout << "2. CHANGE x W n - atribuie valoarea n lui v[x]" << endl;
+        cout << "3. PRINT - afiseaza al n-lea obiect creat" << endl;
+        cout << "4. SUM - afiseaza suma elementelor vectorului" << endl;
+        cout << "5. MAX - afiseaza cel mai mare element din vector" << endl;
+        cout << "6. SORT - sorteaza crescator vectorul" << endl;
+        cout << "7. STOP - opreste programul" << endl;
         cout << endl;
         
         cout << "Ca sa incepeti apasati ENTER" << endl;
@@ -127,8 +151,20 @@ public:
                 int dim = comand[6] - '0';
                 Vector vct(n, dim);
                 tablou = vct;
-            }else if( comand[0] == 'P' ) {
-                tablou.afisare();
+            } else if( comand[0] == 'P' ) {
+                cout << tablou;
+            } else if( comand[1] == 'U' ) {
+                tablou.Suma();
+            } else if( comand[0] == 'M' ) {
+                tablou.Maxim();
+            } else if( comand[1] == 'O' ) {
+                tablou.Sortare();
+            } else if( comand[0] == 'C' ) {
+                int x = comand[7] - '0';
+                int n = comand[11] - '0';
+                tablou.change(x, n);
+            } else {
+                cout << "Comanda incorecta!" << endl;
             }
 
 
