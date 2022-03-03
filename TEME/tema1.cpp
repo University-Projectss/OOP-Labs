@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cstring>
+#include <stdlib.h>
 using namespace std;
 
 class Vector {
@@ -89,6 +90,8 @@ public:
 
     void Sortare() {
         sort(v, v + n);
+
+
     }
 
     void change(int poz, int val) {
@@ -119,7 +122,7 @@ public:
 class Meniu {
 private:
     char comand[15];
-    bool avem;
+    // bool avem;
     Vector tablou;
 
 public:
@@ -128,27 +131,48 @@ public:
         cout << "TEMA --> Implementarea clasei Vector" << endl << endl;
         cout << "              MENIU COMENZI         " << endl << endl;
         cout << "1. ADD x n - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
-        cout << "2. CHANGE x W n - atribuie valoarea n lui v[x]" << endl;
+        cout << "2. CHANGE x n - atribuie valoarea n lui v[x]" << endl;
         cout << "3. PRINT - afiseaza al n-lea obiect creat" << endl;
         cout << "4. SUM - afiseaza suma elementelor vectorului" << endl;
         cout << "5. MAX - afiseaza cel mai mare element din vector" << endl;
         cout << "6. SORT - sorteaza crescator vectorul" << endl;
         cout << "7. STOP - opreste programul" << endl;
         cout << endl;
+
+        cout << "*vectorul este indexat de la 0";
+        cout << endl;
+        cout << endl;
         
         cout << "Ca sa incepeti apasati ENTER" << endl;
         
 
-        avem = false;
+        // avem = false;
         do {
             cin.get();
             cout << "Introduceti comanda si apasati ENTER --> ";
             cin.get(comand, 12);
 
             if( comand[0] == 'A' ) {
-                avem = true;
-                int n = comand[4] - '0';
-                int dim = comand[6] - '0';
+                // avem = true;
+                // int n = comand[4] - '0';
+                // int dim = comand[6] - '0';
+
+                int n, dim;
+                char *p;
+                p = strtok(comand, " ");
+
+                p = strtok(NULL, " ");
+                if(*p == '0')
+                    n = 0;
+                else
+                    n = atoi(p);
+
+                p = strtok(NULL, " ");
+                if(*p == '0')
+                    dim = 0;
+                else
+                    dim = atoi(p);
+
                 Vector vct(n, dim);
                 tablou = vct;
             } else if( comand[0] == 'P' ) {
@@ -159,14 +183,31 @@ public:
                 tablou.Maxim();
             } else if( comand[1] == 'O' ) {
                 tablou.Sortare();
+                cout << tablou;
             } else if( comand[0] == 'C' ) {
-                int x = comand[7] - '0';
-                int n = comand[11] - '0';
-                tablou.change(x, n);
-            } else {
-                cout << "Comanda incorecta!" << endl;
-            }
+                // int x = comand[7] - '0';
+                // int n = comand[9] - '0';
 
+                int x, n;
+                char *p;
+                p = strtok(comand, " ");
+
+                p = strtok(NULL, " ");
+                if(*p == '0')
+                    x = 0;
+                else
+                    x = atoi(p);
+
+                p = strtok(NULL, " ");
+                if(*p == '0')
+                    n = 0;
+                else
+                    n = atoi(p);
+
+                tablou.change(x, n);
+            } 
+
+            cout << endl;
 
         }while( strcmp(comand, "STOP") != 0 );
         
