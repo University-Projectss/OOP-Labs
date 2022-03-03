@@ -94,11 +94,17 @@ public:
 
     }
 
+    //un fel de setter
     void change(int poz, int val) {
         if(poz >= n) 
             cout << "Segmentation fault! Ai iesit din vector.";
         else
             v[poz] = val;
+    }
+
+    //un fel de getter
+    int getSize() {
+        return n;   
     }
 
     friend ostream& operator<<(ostream &os, Vector &rhs) {
@@ -132,7 +138,7 @@ public:
         cout << "              MENIU COMENZI         " << endl << endl;
         cout << "1. ADD x n - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
         cout << "2. CHANGE x n - atribuie valoarea n lui v[x]" << endl;
-        cout << "3. PRINT - afiseaza al n-lea obiect creat" << endl;
+        cout << "3. PRINT - afiseaza vectorul" << endl;
         cout << "4. SUM - afiseaza suma elementelor vectorului" << endl;
         cout << "5. MAX - afiseaza cel mai mare element din vector" << endl;
         cout << "6. SORT - sorteaza crescator vectorul" << endl;
