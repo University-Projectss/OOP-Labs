@@ -16,4 +16,3 @@ componentelor);
 -------------------------------------------------------------------------------------
 
 DE TERMINAT:
-1. Selectat corect numerele din input
