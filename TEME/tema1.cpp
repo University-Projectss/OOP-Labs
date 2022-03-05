@@ -129,6 +129,7 @@ private:
     char comand[15];
     // bool avem;
     Vector tablou;
+    vector<Vector> bigV;
 
 public:
 
