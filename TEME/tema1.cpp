@@ -59,16 +59,16 @@ public:
         return *this;
     }
 
-    // void actualizare(int nr, int comp) {
-    //     delete[] v;
-    //     n = comp;
-    //     int *newArray = new int[n];
+    void actualizare(int nr, int comp) {
+        delete[] v;
+        n = comp;
+        int *newArray = new int[n];
 
-    //     for(int i = 0; i < n; i++)
-    //         newArray[i] = nr; 
+        for(int i = 0; i < n; i++)
+            newArray[i] = nr; 
 
-    //     v =  newArray;
-    // }
+        v =  newArray;
+    }
 
     void Suma() {
         int suma = 0;
@@ -90,8 +90,6 @@ public:
 
     void Sortare() {
         sort(v, v + n);
-
-
     }
 
     //un fel de setter
@@ -147,6 +145,9 @@ public:
 
         cout << "*vectorul este indexat de la 0";
         cout << endl;
+        cout << "*programul nu este case sensitive, dar pentru a il opri ";
+        cout << "trebuie scris STOP";
+        cout << endl;
         cout << endl;
         
         cout << "Ca sa incepeti apasati ENTER" << endl;
@@ -158,7 +159,7 @@ public:
             cout << "Introduceti comanda si apasati ENTER --> ";
             cin.get(comand, 12);
 
-            if( comand[0] == 'A' ) {
+            if( toupper(comand[0]) == 'A' ) {
                 // avem = true;
                 // int n = comand[4] - '0';
                 // int dim = comand[6] - '0';
@@ -181,16 +182,16 @@ public:
 
                 Vector vct(n, dim);
                 tablou = vct;
-            } else if( comand[0] == 'P' ) {
+            } else if( toupper(comand[0]) == 'P' ) {
                 cout << tablou;
-            } else if( comand[1] == 'U' ) {
+            } else if( toupper(comand[1]) == 'U' ) {
                 tablou.Suma();
-            } else if( comand[0] == 'M' ) {
+            } else if( toupper(comand[0]) == 'M' ) {
                 tablou.Maxim();
-            } else if( comand[1] == 'O' ) {
+            } else if( toupper(comand[1]) == 'O' ) {
                 tablou.Sortare();
                 cout << tablou;
-            } else if( comand[0] == 'C' ) {
+            } else if( toupper(comand[0]) == 'C' ) {
                 // int x = comand[7] - '0';
                 // int n = comand[9] - '0';
 
@@ -211,7 +212,8 @@ public:
                     n = atoi(p);
 
                 tablou.change(x, n);
-            } 
+            }else if( strcmp(comand, "STOP") != 0 )
+                cout << "Comanda gresita!";
 
             cout << endl;
 
