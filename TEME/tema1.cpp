@@ -11,6 +11,7 @@ private:
     int n, *v;
 
 public:
+    //adevaratul constructor de initializare
     Vector(int nr = 0, int comp = 1) {
         // delete[] v;
 
@@ -106,10 +107,37 @@ public:
         return n;   
     }
 
-    friend ostream& operator<<(ostream &os, Vector &rhs) {
-        os << "Vectorul la momentul curent: ";
-        for(int i = 0; i < rhs.n; i++)
-            os << rhs[i] << " ";
+    friend istream& operator>>(istream &os, Vector &vct) {
+        int nr, elem;
+            cout << "n (nr. elemente) = ";
+            os >> nr;
+            cout << "Elementele vectorului: " << endl;
+
+            vct.n = nr;
+
+            for(int i = 0; i < nr; i++) {
+                os >> elem;
+                vct.change(i, elem);
+            }
+        return os;
+    }
+
+    friend ostream& operator<<(ostream &os, vector<Vector> &rhs) {
+        os << endl;
+
+        if( rhs.size() == 0 ) {
+            cout << "cri...cri...Nu exista niciun obiect creat.";
+        } else {
+            for(int i = 0; i < rhs.size(); i++) {
+            cout << "Obiectul " << i << endl;
+            os << "n=  " << rhs[i].getSize() << endl << "v: ";
+            for(int j = 0; j < rhs[i].n; j++)
+                os << rhs[i].v[j] << " ";
+            os << endl;
+            os << endl;
+            }
+        }
+
         os << endl;
 
         return os;
@@ -137,15 +165,19 @@ public:
         cout << "TEMA --> Implementarea clasei Vector" << endl << endl;
         cout << "              MENIU COMENZI         " << endl << endl;
         cout << "1. ADD x n - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
-        cout << "2. CHANGE x n - atribuie valoarea n lui v[x]" << endl;
-        cout << "3. PRINT - afiseaza vectorul" << endl;
-        cout << "4. SUM - afiseaza suma elementelor vectorului" << endl;
-        cout << "5. MAX - afiseaza cel mai mare element din vector" << endl;
-        cout << "6. SORT - sorteaza crescator vectorul" << endl;
-        cout << "7. STOP - opreste programul" << endl;
+        cout << "2. READ - citeste de la tastatura un obiect nou" << endl;
+        cout << "3. CHANGE x n - atribuie valoarea n lui v[x]" << endl;
+        cout << "4. UPDATE x n - reactualizeaza nr de componente cu n, toate fiind egale cu x" << endl;
+        cout << "5. PRINT - afiseaza toate obiectele create" << endl;
+        cout << "6. SUM - afiseaza suma elementelor vectorului" << endl;
+        cout << "7. MAX - afiseaza cel mai mare element din vector" << endl;
+        cout << "8. SORT - sorteaza crescator vectorul" << endl;
+        cout << "9. STOP - opreste programul" << endl;
         cout << endl;
 
         cout << "*vectorul este indexat de la 0";
+        cout << endl;
+        cout << "*comenzile 3, 5, 6, 7 modifica ultimul obiect creat";
         cout << endl;
         cout << "*programul nu este case sensitive, dar pentru a il opri ";
         cout << "trebuie scris STOP";
@@ -184,15 +216,44 @@ public:
 
                 Vector vct(n, dim);
                 tablou = vct;
+                bigV.push_back(tablou);
+            } else if(toupper(comand[0]) == 'R') {
+
+                Vector vct(0, 1);
+                
+                cin >> vct;
+
+                tablou = vct;
+                bigV.push_back(tablou);
+            } else if(toupper(comand[0]) == 'U') {
+                
+                int x, n;
+                char *p;
+                p = strtok(comand, " ");
+
+                p = strtok(NULL, " ");
+                if(*p == '0')
+                    x = 0;
+                else
+                    x = atoi(p);
+
+                p = strtok(NULL, " ");
+                if(*p == '0')
+                    n = 0;
+                else
+                    n = atoi(p);
+
+                bigV[bigV.size() - 1].actualizare(x, n);
+
             } else if( toupper(comand[0]) == 'P' ) {
-                cout << tablou;
+                cout << bigV;
             } else if( toupper(comand[1]) == 'U' ) {
-                tablou.Suma();
+                bigV[bigV.size() - 1].Suma();
             } else if( toupper(comand[0]) == 'M' ) {
-                tablou.Maxim();
+                bigV[bigV.size() - 1].Maxim();
             } else if( toupper(comand[1]) == 'O' ) {
-                tablou.Sortare();
-                cout << tablou;
+                bigV[bigV.size() - 1].Sortare();
+                // cout << bigV[bigV.size() - 1];
             } else if( toupper(comand[0]) == 'C' ) {
                 // int x = comand[7] - '0';
                 // int n = comand[9] - '0';
@@ -213,7 +274,7 @@ public:
                 else
                     n = atoi(p);
 
-                tablou.change(x, n);
+                bigV[bigV.size() - 1].change(x, n);
             }else if( strcmp(comand, "STOP") != 0 )
                 cout << "Comanda gresita!";
 
