@@ -12,7 +12,7 @@ private:
 
 public:
     //adevaratul constructor de initializare
-    Vector(int nr = 0, int comp = 1) {
+    Vector(int nr, int comp) {
         // delete[] v;
 
         n = comp;
@@ -23,11 +23,11 @@ public:
         v = newArray;
     }
 
-    //Constructorul de initializare?
-    // Vector(int dim) {
-    //     n = dim;
-    //     v = new int[n];
-    // }
+    // Constructorul de initializare?
+    Vector() {
+        n = 1;
+        v = new int[n];
+    }
 
     //Constructorul de copiere?
     Vector(const Vector &w) {
@@ -130,7 +130,7 @@ public:
         } else {
             for(int i = 0; i < rhs.size(); i++) {
             cout << "Obiectul " << i << endl;
-            os << "n=  " << rhs[i].getSize() << endl << "v: ";
+            os << "n =  " << rhs[i].getSize() << endl << "v: ";
             for(int j = 0; j < rhs[i].n; j++)
                 os << rhs[i].v[j] << " ";
             os << endl;
@@ -138,16 +138,8 @@ public:
             }
         }
 
-        os << endl;
-
         return os;
     }
-
-    // void afisare() {
-    //     for(int i = 0 ; i < n; i++) 
-    //         cout << v[i] << " ";
-    //     cout << endl;
-    // }
 
 //    friend class Meniu;
 };
@@ -161,23 +153,31 @@ private:
 
 public:
 
+    void afisare() {
+        cout << bigV;
+    }
+
+    void citire(Vector &rhs) {
+        cin >> rhs;
+    }
+
     void run() {
         cout << "TEMA --> Implementarea clasei Vector" << endl << endl;
         cout << "              MENIU COMENZI         " << endl << endl;
-        cout << "1. ADD x n - creeaza un obiect Vector cu n componente cu valoarea x" << endl;
-        cout << "2. READ - citeste de la tastatura un obiect nou" << endl;
+        cout << "1. ADD x n    - creeaza un obiect nou cu n componente cu valoarea x" << endl;
+        cout << "2. READ       - citeste de la tastatura un obiect nou" << endl;
         cout << "3. CHANGE x n - atribuie valoarea n lui v[x]" << endl;
         cout << "4. UPDATE x n - reactualizeaza nr de componente cu n, toate fiind egale cu x" << endl;
-        cout << "5. PRINT - afiseaza toate obiectele create" << endl;
-        cout << "6. SUM - afiseaza suma elementelor vectorului" << endl;
-        cout << "7. MAX - afiseaza cel mai mare element din vector" << endl;
-        cout << "8. SORT - sorteaza crescator vectorul" << endl;
-        cout << "9. STOP - opreste programul" << endl;
+        cout << "5. PRINT      - afiseaza toate obiectele create" << endl;
+        cout << "6. SUM        - afiseaza suma elementelor vectorului" << endl;
+        cout << "7. MAX        - afiseaza cel mai mare element din vector" << endl;
+        cout << "8. SORT       - sorteaza crescator vectorul" << endl;
+        cout << "9. STOP       - opreste programul" << endl;
         cout << endl;
 
         cout << "*vectorul este indexat de la 0";
         cout << endl;
-        cout << "*comenzile 3, 5, 6, 7 modifica ultimul obiect creat";
+        cout << "*comenzile 3, 4, 6, 7 modifica ultimul obiect creat";
         cout << endl;
         cout << "*programul nu este case sensitive, dar pentru a il opri ";
         cout << "trebuie scris STOP";
@@ -219,9 +219,9 @@ public:
                 bigV.push_back(tablou);
             } else if(toupper(comand[0]) == 'R') {
 
-                Vector vct(0, 1);
+                Vector vct;
                 
-                cin >> vct;
+                citire(vct);
 
                 tablou = vct;
                 bigV.push_back(tablou);
@@ -246,7 +246,7 @@ public:
                 bigV[bigV.size() - 1].actualizare(x, n);
 
             } else if( toupper(comand[0]) == 'P' ) {
-                cout << bigV;
+                afisare();
             } else if( toupper(comand[1]) == 'U' ) {
                 bigV[bigV.size() - 1].Suma();
             } else if( toupper(comand[0]) == 'M' ) {
