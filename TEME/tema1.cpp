@@ -122,7 +122,7 @@ public:
         return os;
     }
 
-    friend ostream& operator<<(ostream &os, vector<Vector> &rhs) {
+    friend ostream& operator<<(ostream &os,const vector<Vector> &rhs) {
         os << endl;
 
         if( rhs.size() == 0 ) {
@@ -130,7 +130,7 @@ public:
         } else {
             for(int i = 0; i < rhs.size(); i++) {
             cout << "Obiectul " << i << endl;
-            os << "n =  " << rhs[i].getSize() << endl << "v: ";
+            os << "n =  " << rhs[i].getSize() << endl << "v:   ";
             for(int j = 0; j < rhs[i].n; j++)
                 os << rhs[i].v[j] << " ";
             os << endl;
