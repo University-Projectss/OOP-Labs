@@ -103,7 +103,7 @@ public:
     }
 
     //un fel de getter
-    int getSize() {
+    int getSize() const {
         return n;   
     }
 
