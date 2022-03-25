@@ -17,7 +17,11 @@ public:
     int getSpeed() {
         return speed;
     }
+
+    virtual void printCar() const = 0;
 };
+
+
 
 class Dacia : public Car {
 private:
@@ -28,7 +32,7 @@ public:
         cout << "\nConstructor Dacia\n";
     };
 
-    void getCar() {
+    virtual void printCar() const override {
         cout << "\n" << brand << "\n";
     }
 };
@@ -41,7 +45,7 @@ public:
         cout << "\nConstructor Toyota\n";
     };
 
-    void getCar() {
+    virtual void printCar() const override {
         cout << "\n" << brand << "\n";
     }
 };
@@ -54,10 +58,11 @@ public:
         cout << "\nConstructor Renault\n";
     };
 
-    void getCar() {
+    virtual void printCar() const override {
         cout << "\n" << brand << "\n";
     }
 };
+
 
 
 class Circuit {
@@ -78,7 +83,7 @@ public:
 
     void showCars() {
         for(int i = 0; i < n; i++) {
-            cout << v[i]->getSpeed() << '\n';
+            v[i]->printCar();
         }
     }
 
