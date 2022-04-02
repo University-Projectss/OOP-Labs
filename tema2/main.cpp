@@ -1,9 +1,11 @@
-#include "Persoana.h"
+#include "Abonat_Skype.h"
 #include <iostream>
 
 int main() {
-    Persoana p(19, "Robert");
+    Abonat_Skype p("12", "0712312312", 16, "Robert");
 
+    std::cout << p.getPhoneNumber() << '\n';
+    std::cout << p.getIdSkype() << '\n';
     p.showName();
 
     return 0;

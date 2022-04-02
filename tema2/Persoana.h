@@ -9,6 +9,8 @@ private:
     std::string nume;
 
 public:
+    Persoana();
+
     Persoana(int id_, std::string nume_);
 
     void showName() const;
