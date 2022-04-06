@@ -11,7 +11,7 @@ private:
 public:
     Abonat_Skype(std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
-    std::string getIdSkype() const;
+    virtual std::string getIdSkype() const;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
