@@ -14,6 +14,8 @@ public:
     Persoana(int id_, std::string nume_);
 
     void showName() const;
+
+    std::string getName() const;
 };
 
 #endif

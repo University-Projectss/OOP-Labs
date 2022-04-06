@@ -13,6 +13,7 @@ public:
     Abonat(std::string nr_telefon_, int id_, std::string nume_);
 
     std::string getPhoneNumber() const;
+
 };
 
 #endif

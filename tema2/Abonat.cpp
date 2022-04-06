@@ -4,7 +4,6 @@
 
 Abonat::Abonat(std::string nr_telefon_, int id_, std::string nume_) :
 Persoana(id_, nume_) {
-    std::cout << "Constructor Abonat\n";
     nr_telefon = nr_telefon_;
 }
 

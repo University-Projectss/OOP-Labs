@@ -15,6 +15,8 @@ public:
     void showAgenda() const;
 
     void addAbonat(Abonat* ab);
+
+    Abonat operator[](const std::string nume_);
 };
 
 #endif
