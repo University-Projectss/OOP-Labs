@@ -15,6 +15,7 @@ int main() {
     // std::cout << '\n';
 
     // Abonat_Skype_Romania ken("rbt@mail.ro", "13", "07123123", 19, "Keanu");
+    // std::cout << ken << '\n';
     // Abonat* r = &ken;
     // std::cout << ken.getPhoneNumber() << '\n';
     // std::cout << ken.getIdSkype() << '\n';
