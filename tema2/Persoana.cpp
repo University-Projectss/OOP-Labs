@@ -19,3 +19,11 @@ void Persoana::showName() const {
 std::string Persoana::getName() const {
     return nume;
 }
+
+std::ostream& operator<<(std::ostream& os, const Persoana* pers_) {
+    os << " Nume: " << pers_->nume;
+    os << "\n Id:   " << pers_->id;
+    os << '\n';
+
+    return os;
+}

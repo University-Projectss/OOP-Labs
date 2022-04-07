@@ -14,6 +14,7 @@ public:
 
     std::string getPhoneNumber() const;
 
+    friend std::ostream& operator<<(std::ostream& os, Abonat* ab_);
 };
 
 #endif

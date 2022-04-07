@@ -41,3 +41,7 @@ int main() {
 
     return 0;
 }
+
+/*
+g++ -o main main.cpp Meniu.cpp Persoana.cpp Agenda.cpp Abonat.cpp Abonat_Skype.cpp
+*/

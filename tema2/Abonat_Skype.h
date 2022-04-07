@@ -12,9 +12,12 @@ public:
     Abonat_Skype(std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
     std::string getIdSkype() const;
+
+    friend std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+
 
 class Abonat_Skype_Romania : public Abonat_Skype {
 private:
@@ -23,9 +26,12 @@ public:
     Abonat_Skype_Romania(std::string adresa_mail_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
     std::string getEmail() const;
+
+    friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+
 
 class Abonat_Skype_Extern : public Abonat_Skype {
 private:
@@ -34,6 +40,8 @@ public:
     Abonat_Skype_Extern(std::string tara_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
     std::string getCountry() const;
+
+    friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Extern& abS_);
 };
 
 #endif

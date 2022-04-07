@@ -12,11 +12,13 @@ private:
 public:
     Agenda();
 
-    void showAgenda() const;
+    // void showAgenda() const;
 
     void addAbonat(Abonat* ab);
 
     Abonat operator[](const std::string nume_);
+
+    friend std::ostream& operator<<(std::ostream& os, Agenda& ag_);
 };
 
 #endif

@@ -10,3 +10,12 @@ Persoana(id_, nume_) {
 std::string Abonat::getPhoneNumber() const {
     return nr_telefon;
 }
+
+std::ostream& operator<<(std::ostream& os, Abonat* ab_) {
+    os << "\n";
+    Persoana* ptr = ab_;
+    os << ptr;
+    os << "Telefon: " << ab_->nr_telefon << '\n';
+
+    return os;
+}

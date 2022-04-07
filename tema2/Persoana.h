@@ -16,6 +16,8 @@ public:
     void showName() const;
 
     std::string getName() const;
+
+    friend std::ostream& operator<<(std::ostream& os, const Persoana* pers_);
 };
 
 #endif

@@ -19,7 +19,7 @@ Meniu::Meniu() {
         
         
         if( command == '0' )
-            Ag.showAgenda();
+            std::cout << Ag << '\n';
         else if( command == '1' ) {
             std::string nume, id_skype, mail, telefon;
             int id;
@@ -64,6 +64,7 @@ Meniu::Meniu() {
             addEx(ken);
         }
         
+        std::cout << '\n';
 
     }while(command != 'x');
 }
