@@ -12,12 +12,20 @@ Persoana::Persoana(int id_, std::string nume_) {
     nume = nume_;
 }
 
-void Persoana::showName() const {
-    std::cout << "Numele meu este: " << nume << '\n';
-}
-
 std::string Persoana::getName() const {
     return nume;
+}
+
+int Persoana::getId() const {
+    return id;
+}
+
+void Persoana::setId(int id_) {
+    id = id_;
+}
+
+void Persoana::setName(std::string name_) {
+    nume = name_;
 }
 
 std::ostream& operator<<(std::ostream& os, const Persoana* pers_) {

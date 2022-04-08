@@ -9,11 +9,19 @@ private:
     std::string id_skype;
 
 public:
+    Abonat_Skype();
+
     Abonat_Skype(std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
+
+    Abonat_Skype(const Abonat_Skype& ab);
 
     std::string getIdSkype() const;
 
+    void setIdSkype(std::string idSkype_);
+
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_);
+
+    ~Abonat_Skype() = default;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +33,11 @@ private:
 public:
     Abonat_Skype_Romania(std::string adresa_mail_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
+    Abonat_Skype_Romania(const Abonat_Skype_Romania& ab);
+
     std::string getEmail() const;
+
+    void setEmail(std::string email_);
 
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_);
 };
@@ -39,7 +51,11 @@ private:
 public:
     Abonat_Skype_Extern(std::string tara_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
+    Abonat_Skype_Extern(const Abonat_Skype_Extern& ab);
+
     std::string getCountry() const;
+
+    void setCountry(std::string tara_);
 
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Extern& abS_);
 };

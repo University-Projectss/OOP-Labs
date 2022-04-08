@@ -13,11 +13,15 @@ public:
 
     Persoana(int id_, std::string nume_);
 
-    void showName() const;
-
     std::string getName() const;
+    int getId() const;
+
+    void setName(std::string name_);
+    void setId(int id_);
 
     friend std::ostream& operator<<(std::ostream& os, const Persoana* pers_);
+
+    ~Persoana() = default;
 };
 
 #endif

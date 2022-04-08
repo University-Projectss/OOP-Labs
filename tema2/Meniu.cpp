@@ -16,55 +16,55 @@ Meniu::Meniu() {
         std::cout << "Introduceti comanda si apasati ENTER --> ";
         std::cin >> command;
 
-        
-        
-        if( command == '0' )
-            std::cout << Ag << '\n';
-        else if( command == '1' ) {
-            std::string nume, id_skype, mail, telefon;
-            int id;
-            std::cout<< "Nume: ";
-            std::cin.get();
-            std::getline(std::cin, nume);
 
-            std::cout<< "Mail: ";
-            std::cin >> mail;
+                if( command == '0' )
+                std::cout << Ag << '\n';
+            else if( command == '1' ) {
+                std::string nume, id_skype, mail, telefon;
+                int id;
+                std::cout<< "Nume: ";
+                std::cin.get();
+                std::getline(std::cin, nume);
 
-            std::cout<< "Telefon: ";
-            std::cin >> telefon;
+                std::cout<< "Mail: ";
+                std::cin >> mail;
 
-            std::cout<< "Id Skype: ";
-            std::cin >> id_skype;
+                std::cout<< "Telefon: ";
+                std::cin >> telefon;
 
-            std::cout << "Id Abonat: ";
-            std::cin >> id;
+                std::cout<< "Id Skype: ";
+                std::cin >> id_skype;
 
-            Abonat_Skype_Romania ken(mail, id_skype, telefon, id, nume);
-            addRo(ken);
-        } else if( command == '2' ) {
-            std::string nume, id_skype, tara, telefon;
-            int id;
-            std::cout<< "Nume: ";
-            std::cin.get();
-            std::getline(std::cin, nume);
+                std::cout << "Id Abonat: ";
+                std::cin >> id;
 
-            std::cout<< "Tara: ";
-            std::cin >> tara;
+                Abonat_Skype_Romania ken(mail, id_skype, telefon, id, nume);
+                addRo(ken);
+            } else if( command == '2' ) {
+                std::string nume, id_skype, tara, telefon;
+                int id;
+                std::cout<< "Nume: ";
+                std::cin.get();
+                std::getline(std::cin, nume);
 
-            std::cout<< "Telefon: ";
-            std::cin >> telefon;
+                std::cout<< "Tara: ";
+                std::cin >> tara;
 
-            std::cout<< "Id Skype: ";
-            std::cin >> id_skype;
+                std::cout<< "Telefon: ";
+                std::cin >> telefon;
 
-            std::cout << "Id Abonat: ";
-            std::cin >> id;
+                std::cout<< "Id Skype: ";
+                std::cin >> id_skype;
 
-            Abonat_Skype_Extern ken(tara, id_skype, telefon, id, nume);
-            addEx(ken);
-        }
-        
-        std::cout << '\n';
+                std::cout << "Id Abonat: ";
+                std::cin >> id;
+
+                Abonat_Skype_Extern ken(tara, id_skype, telefon, id, nume);
+                addEx(ken);
+            }
+
+            std::cout << '\n';
+       
 
     }while(command != 'x');
 }
