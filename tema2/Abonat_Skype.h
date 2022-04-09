@@ -7,6 +7,7 @@
 class Abonat_Skype : public Abonat {
 private:
     std::string id_skype;
+    static int nr_abonati;
 
 public:
     Abonat_Skype();
@@ -14,6 +15,10 @@ public:
     Abonat_Skype(std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_);
 
     Abonat_Skype(const Abonat_Skype& ab);
+
+    static int getNrAbonati() {
+        return nr_abonati;
+    }
 
     std::string getIdSkype() const;
 

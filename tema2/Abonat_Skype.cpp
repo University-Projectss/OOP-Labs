@@ -2,13 +2,17 @@
 #include <string>
 #include <iostream>
 
+int Abonat_Skype::nr_abonati = 0;   //initializarea variabile statice
+
 Abonat_Skype::Abonat_Skype() {
     id_skype = "-1";
+    nr_abonati++;
 }
 
 Abonat_Skype::Abonat_Skype(std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_) :
 Abonat(nr_telefon_, id_, nume_) {
     id_skype = id_skype_;
+    nr_abonati++;
 }
 
 Abonat_Skype::Abonat_Skype(const Abonat_Skype& ab) {
