@@ -34,3 +34,20 @@ std::ostream& operator<<(std::ostream& os, Abonat* ab_) {
     return os;
 }
 
+std::istream& operator>>(std::istream& os, Abonat& ab_) {
+    std::string n;
+    int i;
+    std::cout << " Nume: "; os >> n;
+    std::cout << " Id:   "; os >> i;
+    std::cout << " Telefon: "; os >> ab_.nr_telefon;
+    ab_.setId(i);
+    ab_.setName(n);
+
+    return os;
+}
+
+Abonat Abonat::operator=(Abonat& ab) {
+    setId( ab.getId() );
+    setName( ab.getName() );
+    nr_telefon = ab.nr_telefon;
+}

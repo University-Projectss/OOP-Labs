@@ -44,5 +44,5 @@ int main() {
 }
 
 /*
-g++ -o main main.cpp Meniu.cpp Persoana.cpp Agenda.cpp Abonat.cpp Abonat_Skype.cpp
+g++ -o main -w main.cpp Meniu.cpp Persoana.cpp Agenda.cpp Abonat.cpp Abonat_Skype.cpp
 */

@@ -20,46 +20,14 @@ Meniu::Meniu() {
                 if( command == '0' )
                 std::cout << Ag << '\n';
             else if( command == '1' ) {
-                std::string nume, id_skype, mail, telefon;
-                int id;
-                std::cout<< "Nume: ";
-                std::cin.get();
-                std::getline(std::cin, nume);
+                Abonat_Skype_Romania ken;
+                std::cin >> ken;
 
-                std::cout<< "Mail: ";
-                std::cin >> mail;
-
-                std::cout<< "Telefon: ";
-                std::cin >> telefon;
-
-                std::cout<< "Id Skype: ";
-                std::cin >> id_skype;
-
-                std::cout << "Id Abonat: ";
-                std::cin >> id;
-
-                Abonat_Skype_Romania ken(mail, id_skype, telefon, id, nume);
                 addRo(ken);
             } else if( command == '2' ) {
-                std::string nume, id_skype, tara, telefon;
-                int id;
-                std::cout<< "Nume: ";
-                std::cin.get();
-                std::getline(std::cin, nume);
-
-                std::cout<< "Tara: ";
-                std::cin >> tara;
-
-                std::cout<< "Telefon: ";
-                std::cin >> telefon;
-
-                std::cout<< "Id Skype: ";
-                std::cin >> id_skype;
-
-                std::cout << "Id Abonat: ";
-                std::cin >> id;
-
-                Abonat_Skype_Extern ken(tara, id_skype, telefon, id, nume);
+                Abonat_Skype_Extern ken;
+                std::cin >> ken;
+                
                 addEx(ken);
             }
 

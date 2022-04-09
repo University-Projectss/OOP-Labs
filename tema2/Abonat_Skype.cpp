@@ -35,8 +35,18 @@ std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_) {
     return os;
 }
 
+Abonat_Skype Abonat_Skype::operator=(Abonat_Skype& ab) {
+    setId( ab.getId() );
+    setName( ab.getName() );
+    setPhoneNumber( ab.getPhoneNumber() );
+    id_skype = ab.id_skype;
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+Abonat_Skype_Romania::Abonat_Skype_Romania() {
+    adresa_mail = "no mail";
+}
 
 Abonat_Skype_Romania::Abonat_Skype_Romania(std::string adresa_mail_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_) :
 Abonat_Skype(id_skype_, nr_telefon_, id_, nume_) {
@@ -68,8 +78,37 @@ std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_) {
     return os;
 }
 
+std::istream& operator>>(std::istream& os, Abonat_Skype_Romania& abS_) {
+    std::string n, t, m, is;
+    int i;
+    std::cout << " Nume: "; os >> n;
+    std::cout << " Id:   "; os >> i;
+    std::cout << " Telefon:   "; os >> t;
+    std::cout << " Id Skype: "; os >> is;
+    std::cout << " Email:   "; os >> m;
+
+    abS_.setName(n);
+    abS_.setId(i);
+    abS_.setPhoneNumber(t);
+    abS_.setIdSkype(is);
+    abS_.setEmail(m);
+
+    return os;
+}
+
+Abonat_Skype_Romania Abonat_Skype_Romania::operator=(Abonat_Skype_Romania& ab) {
+    setId( ab.getId() );
+    setName( ab.getName() );
+    setPhoneNumber( ab.getPhoneNumber() );
+    setIdSkype( ab.getIdSkype() );
+    setEmail( ab.getEmail() );
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+Abonat_Skype_Extern::Abonat_Skype_Extern() {
+    tara = "no country";
+}
 
 Abonat_Skype_Extern::Abonat_Skype_Extern(std::string tara_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_) :
 Abonat_Skype(id_skype_, nr_telefon_, id_, nume_) {
@@ -99,4 +138,30 @@ std::ostream& operator<<(std::ostream& os, Abonat_Skype_Extern& abS_) {
     os << " Tara: " << abS_.tara << '\n';
 
     return os;
+}
+
+std::istream& operator>>(std::istream& os, Abonat_Skype_Extern& abS_) {
+    std::string n, t, tr, is;
+    int i;
+    std::cout << " Nume: "; os >> n;
+    std::cout << " Id:   "; os >> i;
+    std::cout << " Telefon:   "; os >> t;
+    std::cout << " Id Skype: "; os >> is;
+    std::cout << " Tara:   "; os >> tr;
+
+    abS_.setName(n);
+    abS_.setId(i);
+    abS_.setPhoneNumber(t);
+    abS_.setIdSkype(is);
+    abS_.setCountry(tr);
+
+    return os;
+}
+
+Abonat_Skype_Extern Abonat_Skype_Extern::operator=(Abonat_Skype_Extern& ab) {
+    setId( ab.getId() );
+    setName( ab.getName() );
+    setPhoneNumber( ab.getPhoneNumber() );
+    setIdSkype( ab.getIdSkype() );
+    setCountry( ab.getCountry() );
 }
