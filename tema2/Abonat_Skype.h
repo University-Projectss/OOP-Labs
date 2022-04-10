@@ -24,6 +24,8 @@ public:
 
     void setIdSkype(std::string idSkype_);
 
+     void showAbonat() override;
+
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_);
     Abonat_Skype operator=(Abonat_Skype& ab);
 
@@ -47,6 +49,8 @@ public:
 
     void setEmail(std::string email_);
 
+     void showAbonat() override;
+
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_);
     friend std::istream& operator>>(std::istream& os, Abonat_Skype_Romania& abS_);
     Abonat_Skype_Romania operator=(Abonat_Skype_Romania& ab);
@@ -68,6 +72,8 @@ public:
     std::string getCountry() const;
 
     void setCountry(std::string tara_);
+
+     void showAbonat() override;
 
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Extern& abS_);
     friend std::istream& operator>>(std::istream& os, Abonat_Skype_Extern& abS_);

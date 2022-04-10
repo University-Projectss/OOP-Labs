@@ -30,6 +30,10 @@ void Abonat_Skype::setIdSkype(std::string idSkype_) {
     id_skype = idSkype_;
 }
 
+void Abonat_Skype::showAbonat() {
+    std::cout << "skype\n";
+}
+
 std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_) {
 
     Abonat* ptr = abS_;
@@ -45,6 +49,7 @@ Abonat_Skype Abonat_Skype::operator=(Abonat_Skype& ab) {
     setPhoneNumber( ab.getPhoneNumber() );
     id_skype = ab.id_skype;
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -71,6 +76,10 @@ std::string Abonat_Skype_Romania::getEmail() const {
 
 void Abonat_Skype_Romania::setEmail(std::string email_) {
     adresa_mail = email_;
+}
+
+void Abonat_Skype_Romania::showAbonat()  {
+    std::cout << "romania\n";
 }
 
 std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_) {
@@ -133,6 +142,10 @@ std::string Abonat_Skype_Extern::getCountry() const {
 
 void Abonat_Skype_Extern::setCountry(std::string tara_) {
     tara = tara_;
+}
+
+void Abonat_Skype_Extern::showAbonat()  {
+    std::cout << "extern\n";
 }
 
 std::ostream& operator<<(std::ostream& os, Abonat_Skype_Extern& abS_) {

@@ -17,7 +17,7 @@ Meniu::Meniu() {
         std::cin >> command;
 
 
-                if( command == '0' )
+            if( command == '0' )
                 std::cout << Ag << '\n';
             else if( command == '1' ) {
                 Abonat_Skype_Romania ken;
@@ -39,6 +39,7 @@ Meniu::Meniu() {
 
 void Meniu::addRo(Abonat_Skype_Romania &abonat_) {
     Abonat* ptr = &abonat_;
+    ptr->showAbonat();
     Ag.addAbonat(ptr);
 }
 

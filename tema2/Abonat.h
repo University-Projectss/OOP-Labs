@@ -19,6 +19,8 @@ public:
     std::string getPhoneNumber() const;
     void setPhoneNumber(std::string nr_telefon_);
 
+    virtual void showAbonat();
+
     friend std::ostream& operator<<(std::ostream& os, Abonat* ab_);
     friend std::istream& operator>>(std::istream& os, Abonat& ab_);
     Abonat operator=(Abonat& ab);

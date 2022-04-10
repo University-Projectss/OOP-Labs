@@ -25,12 +25,15 @@ void Abonat::setPhoneNumber(std::string nr_telefon_) {
     nr_telefon = nr_telefon_;
 }
 
+// void Abonat::showAbonat() = 0;
+void Abonat::showAbonat() {}
+
 std::ostream& operator<<(std::ostream& os, Abonat* ab_) {
     os << "\n";
     Persoana* ptr = ab_;
     os << ptr;
     os << "Telefon: " << ab_->nr_telefon << '\n';
-
+    ab_->showAbonat();
     return os;
 }
 
