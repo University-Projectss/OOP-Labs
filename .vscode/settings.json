@@ -36,6 +36,8 @@
         "vector": "cpp",
         "functional": "cpp",
         "tuple": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "bit": "cpp",
+        "memory": "cpp"
     }
 }
