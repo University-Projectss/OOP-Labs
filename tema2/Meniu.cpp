@@ -20,22 +20,23 @@ Meniu::Meniu() {
             if( command == '0' )
                 std::cout << Ag << '\n';
             else if( command == '1' ) {
-                Abonat_Skype_Romania ken;
-                
+                // Abonat_Skype_Romania ken;
+                Abonat* ptr = new Abonat_Skype_Romania();
                 try {
-                    std::cin >> ken;
 
-                    addRo(ken);
+                    std::cin >> *dynamic_cast< Abonat_Skype_Romania* >(ptr);
+                    Ag.addAbonat(ptr);
+                    // addRo(ken);
                 }
                 catch (MyException& e) {
                     std::cout << '\n' << e.what() << '\n';
                 }
 
             } else if( command == '2' ) {
-                Abonat_Skype_Extern ken;
-                std::cin >> ken;
-                
-                addEx(ken);
+                Abonat* ptr = new Abonat_Skype_Extern();
+                std::cin >> *dynamic_cast< Abonat_Skype_Extern* >(ptr);
+                Ag.addAbonat(ptr);
+                // addEx(ken);
             }
 
             std::cout << '\n';

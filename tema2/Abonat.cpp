@@ -36,17 +36,18 @@ std::ostream& operator<<(std::ostream& os, Abonat* ab_) {
     os << ptr;
 
 
-    // os << "Telefon: " << ab_->nr_telefon << '\n';
+    os << " | Telefon: " << ab_->nr_telefon << '\n';
 
     // *ab_.showAbonat();
 
     Abonat_Skype_Romania* pd = dynamic_cast<Abonat_Skype_Romania*> (ab_);
-    std::cout << typeid(pd).name() << '\n';
+    Abonat_Skype_Extern* pe = dynamic_cast<Abonat_Skype_Extern*> (ab_);
+    // std::cout << typeid(pd).name() << '\n';
 
     if( pd != nullptr ) {
         pd->showAbonat();
     } else {
-        std::cout << "e null\n";
+        pe->showAbonat();
     }
     
     return os;

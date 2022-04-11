@@ -94,7 +94,8 @@ void Abonat_Skype_Romania::setEmail(std::string email_) {
 void Abonat_Skype_Romania::nothing() {};
 
 void Abonat_Skype_Romania::showAbonat()  {
-    std::cout << "romania\n";
+    std::cout << " Id Skype: " << getIdSkype();
+    std::cout << " | Email: " << getEmail() << '\n';
 }
 
 std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_) {
@@ -171,7 +172,8 @@ void Abonat_Skype_Extern::setCountry(std::string tara_) {
 }
 
 void Abonat_Skype_Extern::showAbonat()  {
-    std::cout << "extern\n";
+    std::cout << " Id Skype: " << getIdSkype();
+    std::cout << " | Tara: " << getCountry() << '\n';
 }
 
 std::ostream& operator<<(std::ostream& os, Abonat_Skype_Extern& abS_) {
