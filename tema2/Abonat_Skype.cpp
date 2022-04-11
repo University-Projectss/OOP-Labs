@@ -22,6 +22,10 @@ Abonat_Skype::Abonat_Skype(const Abonat_Skype& ab) {
     id_skype = ab.id_skype;
 }
 
+int Abonat_Skype::getNrAbonati() {
+    return nr_abonati;
+}
+
 std::string Abonat_Skype::getIdSkype() const {
     return id_skype;
 }
@@ -53,12 +57,19 @@ Abonat_Skype Abonat_Skype::operator=(Abonat_Skype& ab) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+
+    const char* MyException::what() {
+        return "Email invalid!";
+    }
+
+
 Abonat_Skype_Romania::Abonat_Skype_Romania() {
     adresa_mail = "no mail";
 }
 
 Abonat_Skype_Romania::Abonat_Skype_Romania(std::string adresa_mail_, std::string id_skype_, std::string nr_telefon_, int id_, std::string nume_) :
 Abonat_Skype(id_skype_, nr_telefon_, id_, nume_) {
+
     adresa_mail = adresa_mail_;
 }
 
@@ -99,6 +110,17 @@ std::istream& operator>>(std::istream& os, Abonat_Skype_Romania& abS_) {
     std::cout << " Telefon:   "; os >> t;
     std::cout << " Id Skype: "; os >> is;
     std::cout << " Email:   "; os >> m;
+
+    bool ok = 0;
+    for( int i = 0; i < m.length(); i++ )
+        if( m[i] == '@' ) {
+            ok = 1;
+            break;
+        }
+
+    if( !ok ) {
+        throw MyException();
+    }
 
     abS_.setName(n);
     abS_.setId(i);

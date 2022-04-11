@@ -21,9 +21,16 @@ Meniu::Meniu() {
                 std::cout << Ag << '\n';
             else if( command == '1' ) {
                 Abonat_Skype_Romania ken;
-                std::cin >> ken;
+                
+                try {
+                    std::cin >> ken;
 
-                addRo(ken);
+                    addRo(ken);
+                }
+                catch (MyException& e) {
+                    std::cout << '\n' << e.what() << '\n';
+                }
+
             } else if( command == '2' ) {
                 Abonat_Skype_Extern ken;
                 std::cin >> ken;
@@ -40,7 +47,7 @@ Meniu::Meniu() {
 void Meniu::addRo(Abonat_Skype_Romania &abonat_) {
     Abonat* ptr = &abonat_;
     // Abonat* ptr = dynamic_cast<Abonat*> (&abonat_);
-    ptr->showAbonat();
+    // ptr->showAbonat();
     Ag.addAbonat(ptr);
 }
 

@@ -16,9 +16,7 @@ public:
 
     Abonat_Skype(const Abonat_Skype& ab);
 
-    static int getNrAbonati() {
-        return nr_abonati;
-    }
+    static int getNrAbonati();
 
     std::string getIdSkype() const;
 
@@ -34,6 +32,12 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+class MyException : public std::exception {
+public:
+    MyException() = default; 
+
+    const char* what();
+};
 
 class Abonat_Skype_Romania : public Abonat_Skype {
 private:
