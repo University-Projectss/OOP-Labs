@@ -1,4 +1,5 @@
 #include "Abonat.h"
+#include "Abonat_Skype.h"
 #include <string>
 #include <iostream>
 
@@ -33,7 +34,15 @@ std::ostream& operator<<(std::ostream& os, Abonat* ab_) {
     Persoana* ptr = ab_;
     os << ptr;
     os << "Telefon: " << ab_->nr_telefon << '\n';
-    ab_->showAbonat();
+
+    // Abonat_Skype_Romania* pd = dynamic_cast<Abonat_Skype_Romania*> (ab_);
+    // if( pd != nullptr ) {
+    //     pd->showAbonat();
+    // } else {
+    //     std::cout << "e null\n";
+    // }
+    
+    // ab_->showAbonat();
     return os;
 }
 

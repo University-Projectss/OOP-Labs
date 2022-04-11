@@ -39,6 +39,7 @@ Meniu::Meniu() {
 
 void Meniu::addRo(Abonat_Skype_Romania &abonat_) {
     Abonat* ptr = &abonat_;
+    // Abonat* ptr = dynamic_cast<Abonat*> (&abonat_);
     ptr->showAbonat();
     Ag.addAbonat(ptr);
 }
