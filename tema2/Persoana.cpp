@@ -30,7 +30,7 @@ void Persoana::setName(std::string name_) {
 
 std::ostream& operator<<(std::ostream& os, const Persoana* pers_) {
     os << " Nume: " << pers_->nume;
-    os << "\n Id:   " << pers_->id;
+    os << " | Id: " << pers_->id;
     os << '\n';
 
     return os;

@@ -38,6 +38,8 @@ void Abonat_Skype::showAbonat() {
     std::cout << "skype\n";
 }
 
+void Abonat_Skype::nothing() {};
+
 std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_) {
 
     Abonat* ptr = abS_;
@@ -88,6 +90,8 @@ std::string Abonat_Skype_Romania::getEmail() const {
 void Abonat_Skype_Romania::setEmail(std::string email_) {
     adresa_mail = email_;
 }
+
+void Abonat_Skype_Romania::nothing() {};
 
 void Abonat_Skype_Romania::showAbonat()  {
     std::cout << "romania\n";

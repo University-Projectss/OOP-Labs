@@ -24,6 +24,8 @@ public:
 
      void showAbonat() override;
 
+     virtual void nothing();
+
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype* abS_);
     Abonat_Skype operator=(Abonat_Skype& ab);
 
@@ -53,7 +55,9 @@ public:
 
     void setEmail(std::string email_);
 
-     void showAbonat() override;
+    void showAbonat() override;
+
+    virtual void nothing();
 
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_);
     friend std::istream& operator>>(std::istream& os, Abonat_Skype_Romania& abS_);

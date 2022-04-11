@@ -29,8 +29,12 @@ std::ostream& operator<<(std::ostream& os, Agenda& ag_) {
     if( !ag_.lista.size() )
         os << "Nu exista niciun Abonat\n";
 
-    for(int i = 0; i < ag_.lista.size(); i++)
+    for(int i = 0; i < ag_.lista.size(); i++) {
+        os << "Abonat " << i + 1 << ": ";
         os << ag_.lista[i];
+        os << "------------------------------\n";
+    }
+        
 
     return os;
 }
