@@ -2,6 +2,7 @@
 #define _PERSOANA_H_
 
 #include <string>
+#include <memory>
 
 class Persoana {
 private:
@@ -19,7 +20,7 @@ public:
     void setName(std::string name_);
     void setId(int id_);
 
-    friend std::ostream& operator<<(std::ostream& os, const Persoana* pers_);
+    friend std::ostream& operator<<(std::ostream& os, std::shared_ptr<Persoana> pers_);
 
     ~Persoana() = default;
 };

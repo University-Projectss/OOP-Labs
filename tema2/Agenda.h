@@ -7,14 +7,14 @@
 
 class Agenda {
 private:
-    std::vector<Abonat*> lista;
+    std::vector< std::shared_ptr<Abonat> > lista;
 
 public:
     Agenda();
 
     // void showAgenda() const;
 
-    void addAbonat(Abonat* ab);
+    void addAbonat(std::shared_ptr<Abonat> ab);
 
     Abonat operator[](const std::string nume_);
 

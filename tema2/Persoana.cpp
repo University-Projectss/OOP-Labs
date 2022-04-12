@@ -28,7 +28,7 @@ void Persoana::setName(std::string name_) {
     nume = name_;
 }
 
-std::ostream& operator<<(std::ostream& os, const Persoana* pers_) {
+std::ostream& operator<<(std::ostream& os, std::shared_ptr<Persoana> pers_) {
     os << " Nume: " << pers_->nume;
     os << " | Id: " << pers_->id;
 

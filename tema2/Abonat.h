@@ -21,7 +21,7 @@ public:
 
     virtual void showAbonat();
 
-    friend std::ostream& operator<<(std::ostream& os, Abonat* ab_);
+    friend std::ostream& operator<<(std::ostream& os, std::shared_ptr<Abonat> ab_);
     friend std::istream& operator>>(std::istream& os, Abonat& ab_);
     Abonat operator=(Abonat& ab);
 

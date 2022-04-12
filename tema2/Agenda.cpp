@@ -14,7 +14,7 @@ Agenda::Agenda() {
 //          lista[i]->showName();
 // }
 
-void Agenda::addAbonat(Abonat* ab) {
+void Agenda::addAbonat(std::shared_ptr<Abonat> ab) {
     lista.push_back(ab);
 }
 
