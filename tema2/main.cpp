@@ -3,10 +3,6 @@
 #include <iostream>
 
 int main() {
-    int nr;
-    std::cout << "\nTastati 0 si ENTER pentru a incepe programul.\n\n";
-    if( !(std::cin >> nr) ) return 0;
-
     Meniu m;
     return 0;
 }
