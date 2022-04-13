@@ -19,7 +19,9 @@ vector<int> arii;
 int main() {
     char comanda[10];
 
-    cout << "Apasati ENTER ca sa incepeti" << endl;
+    int nr;
+    std::cout << "\nTastati 0 si ENTER pentru a incepe programul.\n\n";
+    if( !(std::cin >> nr) ) return 0;
 
     do {
         
