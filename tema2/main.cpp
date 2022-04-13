@@ -1,9 +1,13 @@
 #include "Agenda.h"
 #include "Meniu.h"
+#include <iostream>
 
 int main() {
-    Meniu m;
+    int nr;
+    std::cout << "\nTastati 0 si ENTER pentru a incepe programul.\n\n";
+    if( !(std::cin >> nr) ) return 0;
 
+    Meniu m;
     return 0;
 }
 
