@@ -76,7 +76,7 @@ int main() {
             } else if(a.tip_baza[0] == 't') {
                 volum = (a.caracteristici[0] * a.caracteristici[1] / 2) * a.inaltime * 2;
                volume.push_back(volum);
-               arie_lat = (a.caracteristici[0] + a.caracteristici[1] + sqrt(a.caracteristici[0] * a.caracteristici[0] + a.caracteristici[1] * a.caracteristici[1])) * a.inaltime;
+               arie_lat = (int)(a.caracteristici[0] + a.caracteristici[1] + sqrt(a.caracteristici[0] * a.caracteristici[0] + a.caracteristici[1] * a.caracteristici[1])) * a.inaltime;
                 arii.push_back(arie_lat);
                 
                 cout << "Folosim " << volum << "g de gem si " << arie_lat << "g de frisca" << endl;
