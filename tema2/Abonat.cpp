@@ -39,13 +39,8 @@ std::ostream& operator<<(std::ostream& os, std::shared_ptr<Abonat> ab_) {
 
     os << " | Telefon: " << ab_->nr_telefon << '\n';
 
-    // *ab_.showAbonat();
-
-    // Abonat_Skype_Romania* pd = dynamic_cast<Abonat_Skype_Romania*> (ab_);
     std::shared_ptr<Abonat_Skype_Romania> pd = std::dynamic_pointer_cast<Abonat_Skype_Romania> (ab_);
-    // Abonat_Skype_Extern* pe = dynamic_cast<Abonat_Skype_Extern*> (ab_);
     std::shared_ptr<Abonat_Skype_Extern> pe = std::dynamic_pointer_cast<Abonat_Skype_Extern> (ab_);
-    // std::cout << typeid(pd).name() << '\n';
 
     if( pd != nullptr ) {
         pd->showAbonat();
