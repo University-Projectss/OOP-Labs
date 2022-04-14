@@ -41,5 +41,5 @@ Meniu::Meniu() {
             std::cout << '\n';
        
 
-    }while(command != 'x');
+    }while(command == '0' || command == '1' || command == '2');
 }
