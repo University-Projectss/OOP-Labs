@@ -28,7 +28,7 @@ Meniu::Meniu() {
                     Ag.addAbonat(ptr);
 
                 }
-                catch (MyException& e) {
+                catch (const MyException& e) {
                     std::cout << '\n' << e.what() << '\n';
                 }
 

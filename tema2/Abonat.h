@@ -25,7 +25,7 @@ public:
     friend std::istream& operator>>(std::istream& os, Abonat& ab_);
     Abonat operator=(Abonat& ab);
 
-    ~Abonat() = default;
+    virtual ~Abonat() = default;
 };
 
 #endif

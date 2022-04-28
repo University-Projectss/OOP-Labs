@@ -13,9 +13,7 @@ Persoana(id_, nume_) {
     nr_telefon = nr_telefon_;
 }
 
-Abonat::Abonat(const Abonat& ab) {
-    setId( ab.getId() );
-    setName( ab.getName() );
+Abonat::Abonat(const Abonat& ab) : Persoana(ab) {
     nr_telefon = ab.getPhoneNumber();
 }
 
@@ -64,7 +62,10 @@ std::istream& operator>>(std::istream& os, Abonat& ab_) {
 }
 
 Abonat Abonat::operator=(Abonat& ab) {
-    setId( ab.getId() );
-    setName( ab.getName() );
+    // setId( ab.getId() );
+    // setName( ab.getName() );
+
+    Persoana::operator=(ab);
+
     nr_telefon = ab.nr_telefon;
 }

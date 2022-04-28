@@ -61,7 +61,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, Abonat_Skype_Romania& abS_);
     friend std::istream& operator>>(std::istream& os, Abonat_Skype_Romania& abS_);
-    Abonat_Skype_Romania operator=(Abonat_Skype_Romania& ab);
+    Abonat_Skype_Romania &operator=(Abonat_Skype_Romania& ab);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////

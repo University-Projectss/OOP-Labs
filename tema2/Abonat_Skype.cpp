@@ -136,12 +136,14 @@ std::istream& operator>>(std::istream& os, Abonat_Skype_Romania& abS_) {
     return os;
 }
 
-Abonat_Skype_Romania Abonat_Skype_Romania::operator=(Abonat_Skype_Romania& ab) {
+Abonat_Skype_Romania &Abonat_Skype_Romania::operator=(Abonat_Skype_Romania& ab) {
     setId( ab.getId() );
     setName( ab.getName() );
     setPhoneNumber( ab.getPhoneNumber() );
     setIdSkype( ab.getIdSkype() );
     setEmail( ab.getEmail() );
+
+    return *this;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////

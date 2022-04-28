@@ -22,7 +22,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, std::shared_ptr<Persoana> pers_);
 
-    ~Persoana() = default;
+    virtual ~Persoana() = default;
 };
 
 #endif
