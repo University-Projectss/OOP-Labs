@@ -5,11 +5,14 @@
 //Sablon de proiectare: Mostenire
 
 class Animal {
-    std::string denumire;
+    std::string name;
 public:
-    Animal(std::string d = "Animal") {
-        denumire = d;
+    Animal() {
         std::cout << "Constructor Animal\n";
+    }
+
+    void setName(std::string n) {
+        name = n;
     }
 
     virtual ~Animal() = default; 
@@ -17,29 +20,20 @@ public:
 
 
 class Nevertebrate : public Animal {
-    const std::string tipAnimal = "Nevertebrat";
 public:
-    Nevertebrate(std::string d) : Animal(d) {};
-
-    std::string getTipAnimal() const {
-        return tipAnimal;
-    }
+    Nevertebrate() {};
 
     ~Nevertebrate() = default;
 };
 
 
 class Vertebrate : public Animal {
-    const std::string tipAnimal = "Vertebrat";
 public:
-    Vertebrate(std::string d) : Animal(d) {};
-
-    std::string getTipAnimal() const {
-        return tipAnimal;
-    }
+    Vertebrate() {};
 
     ~Vertebrate() = default;
 };
+
 
 
 #endif

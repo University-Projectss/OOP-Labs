@@ -6,16 +6,21 @@
 
 //Sablon de proiectare: Agregare
 
-template<class A = int>
+template<class A>
 class AtlasZoologic {
     int nrAnimale;
-    std::list<A*>;
+    std::list<A> catalog;
 public:
     AtlasZoologic() {
         nrAnimale = 0;
         std::cout << "Constructor Atlas\n";
     }
 
+    void operator+=(A a) {
+        catalog.push_back(a);
+        nrAnimale++;
+        std::cout << "Animal adaugat\n";
+    }
 
     ~AtlasZoologic() = default;
 };
