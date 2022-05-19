@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <memory>
 using namespace std;
 
 class IDCustom {
@@ -62,30 +63,30 @@ void Carte::setEditura(string t) {
     editura = t;
 };
 
-// istream& Carte::operator>>(istream& os, Carte& obj) {
-//     string t, e;
-//     int n, p, c;
-//     vector<string> a;
-//     cout << "Titlu: ";os >> t;
-//     cout << "Pret: ";os >> p;
-//     cout << "Cantitate: ";os >> c;
-//     cout << "Editura: ";os >> e;
-//     cout << "Numar autori: ";os >> n;
-//     cout << "Autorii(ENTER dupa fiecare):\n";
-//     while(n--) {
-//         os >> e;
-//         a.push_back(e);
-//     }
+istream& operator>>(istream& os, Carte& obj) {
+    string t, e;
+    int n, p, c;
+    vector<string> a;
+    cout << "Titlu: ";os >> t;
+    cout << "Pret: ";os >> p;
+    cout << "Cantitate: ";os >> c;
+    cout << "Editura: ";os >> e;
+    cout << "Numar autori: ";os >> n;
+    cout << "Autorii(ENTER dupa fiecare):\n";
+    while(n--) {
+        os >> e;
+        a.push_back(e);
+    }
 
-//     obj.setTitlu(t);
-//     obj.setEditura(e);
-//     obj.setAutori(a);
-//     obj.setPret(p);
-//     obj.setCantitate(c);
-//     obj.setId(IDCustom::getNextId());
+    obj.setTitlu(t);
+    obj.setEditura(e);
+    obj.setAutori(a);
+    obj.setPret(p);
+    obj.setCantitate(c);
+    obj.setId(IDCustom::getNextId());
 
-//     return os;
-// }
+    return os;
+}
 
 Carte::Carte() {
     titlu = "";
@@ -172,16 +173,16 @@ int main() {
     cout << "Cate produse primim astazi? ";cin >> n;
     cout << '\n\n';
 
-    // while(n--) {
-    //     cout << "Ce produs citim? (carte, dvd-muzica, dvd-film, figurina, poster)\n";
-    //     cin >> produs;
+    while(n--) {
+        cout << "Ce produs citim? (carte, dvd-muzica, dvd-film, figurina, poster)\n";
+        cin >> produs;
 
-    //     if(produs.compare("carte") == 0) {
-    //         shared_ptr<Produs> c = make_shared<Carte>();
-    //         cin >> *dynamic_pointer_cast<Carte>(c);
-    //         catalog.push_back(c);
-    //     }
-    // }
+        if(produs.compare("carte") == 0) {
+            shared_ptr<Produs> c = make_shared<Carte>();
+            cin >> *dynamic_pointer_cast<Carte>(c);
+            catalog.push_back(c);
+        }
+    }
 
     return 0;
 }
