@@ -67,7 +67,7 @@ istream& operator>>(istream& os, Carte& obj) {
     string t, e;
     int n, p, c;
     vector<string> a;
-    cout << "Titlu: ";os >> t;
+    cout << "Titlu: ";getline(os, t);
     cout << "Pret: ";os >> p;
     cout << "Cantitate: ";os >> c;
     cout << "Editura: ";os >> e;
@@ -166,20 +166,21 @@ ObiectDeColectiePoster::ObiectDeColectiePoster(string f) : format(f) {};
 
 
 int main() {
-    vector< shared_ptr<Produs> > catalog;
+    vector< Produs* > catalog;
     int n;
     string produs;
 
     cout << "Cate produse primim astazi? ";cin >> n;
-    cout << '\n\n';
+    cout << "\n\n";
 
     while(n--) {
         cout << "Ce produs citim? (carte, dvd-muzica, dvd-film, figurina, poster)\n";
         cin >> produs;
+        cin.get();
 
         if(produs.compare("carte") == 0) {
-            shared_ptr<Produs> c = make_shared<Carte>();
-            cin >> *dynamic_pointer_cast<Carte>(c);
+            Produs* c = new Carte();
+            cin >> *(Carte*)c;
             catalog.push_back(c);
         }
     }
