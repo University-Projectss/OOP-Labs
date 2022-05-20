@@ -56,9 +56,12 @@ public:
         for(typename std::list<Vertebrate*>::iterator i = catalog.begin(); i != catalog.end(); i++) {
             for(int j = 0; j < 10; j++) {
                 Vertebrate o(**i);
-                if( pestiRapitori[j].compare(o.getSpecie()) ) {
-                    cnt++;
-                    break;
+                if( pestiRapitori[j].compare(o.getSpecie()) == 0 ) {
+                    Peste* p = dynamic_cast<Peste*>(*i); 
+                    if(p->getLungime() > 1) {
+                        cnt++;
+                        break;
+                    }
                 }
             }
         }

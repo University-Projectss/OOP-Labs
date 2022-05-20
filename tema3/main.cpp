@@ -49,8 +49,9 @@ int main() {
                  atlas1 += citireVertebrat< Mamifer >();
              }
         } else {
-            cout << "Numele animalului este ";cin >> sir;
-            Nevertebrate* ptr = new Nevertebrate(sir);
+            cout << "Numele animalului este ";
+            Nevertebrate* ptr = new Nevertebrate();
+            cin >> *ptr;
             atlas2 += ptr;
         }
     }
