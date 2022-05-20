@@ -8,6 +8,9 @@ class Animal {
 protected:
     std::string specie;
 public:
+    Animal() {
+        specie = "";
+    }
     Animal(std::string s) : specie(s) {}
 
     virtual ~Animal() = default; 
@@ -31,6 +34,13 @@ public:
 class Vertebrate : public Animal {
 public:
     Vertebrate(std::string s) : Animal(s) {};
+    Vertebrate(Vertebrate& obj) : Animal(obj.getSpecie()) {
+        specie = obj.getSpecie();
+    }
+
+    std::string getSpecie() {
+        return specie;
+    }
 
     friend std::ostream& operator<<(std::ostream& os, Vertebrate& obj) {
         os << obj.specie;

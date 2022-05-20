@@ -61,5 +61,6 @@ int main() {
     cout << "Vertebrate: " << atlas1 << '\n';
     cout << "Nevertebrate: " << atlas2 << '\n';
     cout << "Cati pesti rapitori de lungime mai mare de 1m s-au citit?\n";
+    cout << "Raspuns: " << atlas1.catiPestiRapitori< Vertebrate* >() << '\n';
     return 0;
 }

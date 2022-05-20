@@ -45,6 +45,26 @@ public:
         std::cout << "Animal adaugat\n";
     }
 
+    template<class T>
+    int catiPestiRapitori() {
+        std::cout << "\nNu avem pesti in acest atlas\n";
+    }
+
+    template<>
+    int catiPestiRapitori<Vertebrate*>() {
+        int cnt = 0;
+        for(typename std::list<Vertebrate*>::iterator i = catalog.begin(); i != catalog.end(); i++) {
+            for(int j = 0; j < 10; j++) {
+                Vertebrate o(**i);
+                if( pestiRapitori[j].compare(o.getSpecie()) ) {
+                    cnt++;
+                    break;
+                }
+            }
+        }
+        return cnt;
+    }
+
 
     ~AtlasZoologic() = default;
 };
