@@ -36,6 +36,8 @@ public:
     Produs& operator=(const Produs& p) {
         denProdus = p.getDenProdus();
         pretProd = p.getPretProd();
+
+        return *this;
     }
 
     friend ostream& operator<<(ostream& os,const Produs& p) {
@@ -103,7 +105,7 @@ public:
         return *this;
     }
 
-    Comanda& operator++() {
+    Comanda operator++() {
         nrPortii++;
         return *this;
     }
