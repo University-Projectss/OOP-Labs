@@ -11,6 +11,12 @@ struct date {
     int zi, luna, an;
 };
 
+class Stream {
+public:
+    virtual void afisare(ostream& os) = 0;
+    virtual void citire(istream& is) = 0;
+};
+
 
 class MyException : public exception {
 public:
@@ -21,13 +27,13 @@ public:
     }
 };
 
-class Persoana {
+class Persoana : public Stream {
     string nume, cnp;
 public:
     Persoana();
     Persoana(string n, string c);
 
-    virtual void citire(istream& is) {
+     void citire(istream& is) {
         is.get();
         cout << "Nume: ";getline(is, nume);
         cout << "CNP: ";is >> cnp;
@@ -39,7 +45,7 @@ public:
     }
     friend istream& operator>>(istream& is, Persoana& p);
 
-    virtual void afisare(ostream& os);
+     void afisare(ostream& os);
     friend ostream& operator<<(ostream& os, Persoana& p);
 
     const int getYear() const {
